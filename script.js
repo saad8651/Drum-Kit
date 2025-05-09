@@ -1,32 +1,68 @@
-const products = [
-    { id: 1, name: "iPhone 15", price: 79999, image: "https://powermaccenter.com/cdn/shop/files/iPhone_15_Pro_Max_Natural_Titanium_PDP_Image_Position-1__en-US_3295c924-7c21-417d-870c-32bee7f1e310.jpg?v=1695861436&width=823" },
-    { id: 2, name: "Samsung Galaxy S23", price: 69999, image: "https://sm.pcmag.com/t/pcmag_me/photo/default/s23-ultra-18_n5vf.1920.jpg" },
-    { id: 3, name: "Sony Headphones", price: 9999, image: "https://www.bing.com/th/id/OIP.QRKVvy3OugyohiXulElgmwHaHa?w=195&h=185&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" }
-];
+var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
-const productList = document.getElementById("product-list");
-const cartBtn = document.getElementById("cart-btn");
-let cartCount = 0;
+for (var i = 0; i < numberOfDrumButtons; i++) {
+  document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+    var buttonInnerHTML = this.innerHTML;
 
-function loadProducts() {
-    products.forEach(product => {
-        const div = document.createElement("div");
-        div.classList.add("product");
-        div.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>₹${product.price}</p>
-            <button onclick="addToCart()">Add to Cart</button>
-        `;
-        productList.appendChild(div);
-    });
+    makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
+  });
 }
 
-function addToCart() {
-    cartCount++;
-    document.getElementById("cart-count").textContent = cartCount;
+document.addEventListener("keypress", function (event) {
+  makeSound(event.key);
+  buttonAnimation(event.key);
+});
+
+function makeSound(key) {
+  switch (key) {
+    case "q":
+      var tom1 = new Audio("sounds/tom-1.mp3");
+      tom1.play();
+      break;
+
+    case "w":
+      var tom2 = new Audio("sounds/tom-2.mp3");
+      tom2.play();
+      break;
+
+    case "e":
+      var tom3 = new Audio("sounds/tom-3.mp3");
+      tom3.play();
+      break;
+
+    case "r":
+      var tom4 = new Audio("sounds/tom-4.mp3");
+      tom4.play();
+      break;
+
+    case "t":
+      var snare = new Audio("sounds/snare.mp3");
+      snare.play();
+      break;
+
+    case "y":
+      var crash = new Audio("sounds/crash.mp3");
+      crash.play();
+      break;
+
+    case "u":
+      var kick = new Audio("sounds/kick-bass.mp3");
+      kick.play();
+      break;
+
+    default:
+      console.log("Unmapped key pressed: " + key);
+  }
 }
 
-cartBtn.addEventListener("click", () => alert(`Items in Cart: ${cartCount}`));
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  if (activeButton) {
+    activeButton.classList.add("pressed");
 
-window.onload = loadProducts;
+    setTimeout(function () {
+      activeButton.classList.remove("pressed");
+    }, 100);
+  }
+}
