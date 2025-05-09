@@ -4,9 +4,9 @@ body {
   }
   
   h1 {
-    font-size: 5rem;
     color: #DBEDF3;
-    text-shadow: 3px 3px #DA0463;
+    font-size: 5rem; 
+    text-shadow: 2px 2px #DA0463;
    
   
   }
@@ -16,57 +16,31 @@ body {
     font-family: sans-serif;
   }
   
-  .q {
-    background-image: url("images/tom1.png");
-  }
-  
-  .w {
-    background-image: url("images/tom2.png");
-  }
-  
-  .e {
-    background-image: url("images/tom3.png");
-  }
-  
-  .r {
-    background-image: url("images/tom4.png");
-  }
-  
-  .t {
-    background-image: url("images/snare.png");
-  }
-  
-  .y {
-    background-image: url("images/crash.png");
-  }
-  
-  .u {
-    background-image: url("images/kick.png");
-  }
-  
-  .set {
-    margin: 10% auto;
-  }
-  
-  .pressed {
-    box-shadow: 0 3px 4px 0 #DBEDF3;
-    opacity: 0.5;
-  }
+  .q { background-image: url("images/tom1.png"); }
+  .w { background-image: url("images/tom2.png"); }
+  .e { background-image: url("images/tom3.png"); }
+  .r { background-image: url("images/tom4.png"); }
+  .t { background-image: url("images/snare.png"); }
+  .y { background-image: url("images/crash.png"); } 
+  .u { background-image: url("images/kick.png"); }
+  .set { margin: 10% auto; }
+
+  .pressed { box-shadow: 0 3px 4px 0 #DBEDF3; opacity: 0.5; }
   
   .drum {
-    outline: none;
+    outline: 1px solid rgb(121, 139, 189);
     border: 10px solid #404B69;
     font-size: 5rem;
-    font-family: 'Arvo', cursive;
-    line-height: 2;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1;
     font-weight: 900;
     color: #e710a0;
-    text-shadow: 3px 0 #DBEDF3;
+    text-shadow: 3px 0 #afbcc0;
+    text-align: center;
     border-radius: 15px;
     display: inline-block;
     width: 150px;
     height: 150px;
-    text-align: center;
     margin: 10px;
     background-color: white;
   }
