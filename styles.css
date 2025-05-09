@@ -1,12 +1,12 @@
 body {
-    text-align: center;
     background-color: #283149;
+    text-align: center;
   }
   
   h1 {
     font-size: 5rem;
     color: #DBEDF3;
-    text-shadow: 30px 600px #DA0463;
+    text-shadow: 3px 3px #DA0463;
    
   
   }
